@@ -1,9 +1,7 @@
 from flask import Flask, render_template
 import os
 import json
-
-if "instance" not in os.listdir():
-    os.mkdir("instance")
+from datetime import datetime
 
 def get_data():
     with open("instance/data.json", "r") as f:
@@ -22,12 +20,17 @@ def create_post(title: str, author: str, content: str):
     data["posts"][post_id] = {
         "title": title,
         "author": author,
-        "content": content
+        "content": content,
     }
 
     set_data(data)
 
 app = Flask(__name__)
+
+if "instance" not in os.listdir():
+    os.mkdir("instance")
+    data = {"posts":{}}
+    set_data(data)
 
 @app.route("/")
 def index():

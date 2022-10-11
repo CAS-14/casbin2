@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <a href="/" id="nav-posts" class="active">Posts</a>
+    <a href="/create" id="nav-create">Create</a>
+    <a href="/about" id="nav-about">About</a>
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <header class="post-title">
+                <h3>{{post["title"]}}</h3>
+                <span>{{post["author"]}}</span>
+            </header>
+            <p>{{post["content"]}}</p>
+        </article>
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
