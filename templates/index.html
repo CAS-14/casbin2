@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block content %}
-    {% for post in posts %}
+    {% for post_id in posts %}
         <article class="post">
             <header class="post-title">
-                <h3>{{post["title"]}}</h3>
-                <span>{{post["author"]}}</span>
+                <strong>{{posts[post_id]["title"]}}</strong>
+                <span>{{posts[post_id]["author"]}}</span>
             </header>
-            <p>{{post["content"]}}</p>
+            <p>{{posts[post_id]["content"]}}</p>
         </article>
         {% if not loop.last %}
             <hr>

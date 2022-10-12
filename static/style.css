@@ -1,0 +1,31 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-size: 16pt;
+}
+
+body {
+    overflow: hidden;
+}
+
+header, footer {
+    background-color: steelblue;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 40vw;
+    height: 80vh;
+    display: block;
+    margin: auto;
+    border: solid black;
+    border-width: 2px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.info {
+    padding-left: 20px;
+    text-align: left;
+}

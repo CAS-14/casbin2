@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <a href="/" id="nav-posts">Posts</a>
+    <a href="/create" id="nav-create" class="active">Create</a>
+    <a href="/about" id="nav-about">About</a>
+{% endblock %}
+
+{% block content %}
+    <h2>Create post</h2>
+    <form method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" placeholder="Post title" value="{{request.form['title']}}" minlength="1" maxlength="20"></input><br>
+        <label for="author">Your name:</label>
+        <input type="text" name="author" placeholder="Anonymous" value="{{request.form['author']}}" maxlength="20"></input><br>
+        <label for="content">Post content:</label><br>
+        <textarea name="content" placeholder="Write your post here" rows="15" cols="60" minlength="1" maxlength="1000">{{request.form['content']}}</textarea><br>
+        <button type="submit">Post</button>
+    </form>
+{% endblock %}
